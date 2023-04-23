@@ -1,0 +1,23 @@
+import marketingImg from '../../assets/marketing1.png';
+import s from './Greeting.module.css';
+
+type Props = {
+  onToFirst: () => void;
+}
+
+export const Greeting = ({ onToFirst }: Props) => {
+  return (
+    <section className={s.greeting}>
+      <h1>Урок 1. Что такое интернет-маркетинг</h1>
+      <h2>Привет!</h2>
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod ipsam doloremque cupiditate pariatur similique rerum unde praesentium dicta doloribus eius eveniet earum repudiandae nobis, ipsum, quibusdam dolore recusandae sit dolorum?
+      </p>
+      <img src={marketingImg} alt="Marketing" />
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod ipsam doloremque cupiditate pariatur similique rerum unde praesentium dicta doloribus eius eveniet earum repudiandae nobis, ipsum, quibusdam dolore recusandae sit dolorum?
+      </p>
+      <button onClick={onToFirst}>Отправиться в путешествие!</button>
+    </section>
+  )
+}

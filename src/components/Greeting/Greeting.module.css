@@ -1,0 +1,22 @@
+.greeting {
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.greeting img {
+    width: 100%;
+    max-width: 400px;
+    margin: 20px 0;
+}
+
+.greeting button {
+    width: 100%;
+    background-color: #3e3f3f;
+    color: white;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 12px;
+}
