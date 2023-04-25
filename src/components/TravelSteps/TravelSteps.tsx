@@ -9,22 +9,21 @@ type Props = {
 };
 
 export const TravelSteps = ({ stepOneRef }: Props) => {
-
   const [stepsDone, setStepsDone] = useState(0);
 
   return (
-    <section ref={stepOneRef} className={s.stepOne}>
-      <div className={s.message}>
-        <span>Аллахверди</span>
-        <div className={s.inner}>
-          <span>Отправиться в путешествие</span>
-          <img src={avatar} alt="avatar" />
+    <>
+      <section ref={stepOneRef} className={s.stepOne}>
+        <div className={s.message}>
+          <span>Аллахверди</span>
+          <div className={s.inner}>
+            <span>Отправиться в путешествие</span>
+            <img src={avatar} alt="avatar" />
+          </div>
         </div>
-      </div>
-      <StepOne stepsDone={stepsDone} setStepsDone={setStepsDone} />
-      {stepsDone > 0 && (
-        <StepTwo />
-      )}
-    </section>
+        <StepOne stepsDone={stepsDone} setStepsDone={setStepsDone} />
+      </section>
+      {stepsDone > 0 && <StepTwo />}
+    </>
   );
 };

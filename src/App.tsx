@@ -1,7 +1,7 @@
 import { useCallback, useRef, useState } from 'react';
-import './App.css'
 import { Greeting } from './components/Greeting/Greeting'
 import { TravelSteps } from './components/TravelSteps/TravelSteps';
+import { MobileOnlyPlaceholder } from './components/MobileOnlyPlaceholder/MobileOnlyPlaceholder';
 
 function App() {
 
@@ -19,11 +19,14 @@ function App() {
 
   return (
     <div className='app'>
-      <Greeting handleStart={handleStart} />
-  
-      {isStarted && (
-        <TravelSteps stepOneRef={stepOneRef} />
-      )}
+      <main>
+        <Greeting handleStart={handleStart} />
+    
+        {isStarted && (
+          <TravelSteps stepOneRef={stepOneRef} />
+        )}
+      </main>
+      <MobileOnlyPlaceholder />
     </div>
   )
 }

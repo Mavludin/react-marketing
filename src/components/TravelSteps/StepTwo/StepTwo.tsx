@@ -5,7 +5,7 @@ import { CustomImage } from "../../CustomImage/CustomImage";
 
 export const StepTwo = () => {
   return (
-    <div className={s.stepTwo}>
+    <section className={s.stepTwo}>
       <h2>Чем маркетинг отличается от интернет-маркетинга</h2>
 
       <p>
@@ -66,6 +66,6 @@ export const StepTwo = () => {
           Узнать ответь
         </button>
       </div>
-    </div>
+    </section>
   );
 };

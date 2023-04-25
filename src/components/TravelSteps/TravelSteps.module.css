@@ -1,4 +1,6 @@
 .stepOne {
+    padding-top: 20px;
+    
     height: 100vh;
     display: flex;
     flex-direction: column;

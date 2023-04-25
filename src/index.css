@@ -10,6 +10,16 @@
   -webkit-text-size-adjust: 100%;
 }
 
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.app {
+  padding-bottom: 20px;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -53,3 +63,16 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+.mobileOnly {
+  display: none;
+}
+
+@media screen and (min-width: 481px) {
+  main {
+    display: none;
+  }
+
+  .mobileOnly {
+    display: block;
+  }
+}
