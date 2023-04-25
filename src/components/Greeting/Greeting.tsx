@@ -1,4 +1,4 @@
-import marketingImg from '../../assets/marketing1.png';
+import { CustomImage } from '../CustomImage/CustomImage';
 import s from './Greeting.module.css';
 
 type Props = {
@@ -13,7 +13,7 @@ export const Greeting = ({ handleStart }: Props) => {
       <p>
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod ipsam doloremque cupiditate pariatur similique rerum unde praesentium dicta doloribus eius eveniet earum repudiandae nobis, ipsum, quibusdam dolore recusandae sit dolorum?
       </p>
-      <img src={marketingImg} alt="Marketing" />
+      <CustomImage />
       <p>
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod ipsam doloremque cupiditate pariatur similique rerum unde praesentium dicta doloribus eius eveniet earum repudiandae nobis, ipsum, quibusdam dolore recusandae sit dolorum?
       </p>

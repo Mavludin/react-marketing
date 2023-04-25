@@ -1,12 +1,17 @@
 import s from "./TravelSteps.module.css";
 import avatar from "../../assets/avatar.png";
 import { StepOne } from "./StepOne/StepOne";
+import { StepTwo } from "./StepTwo/StepTwo";
+import { useState } from "react";
 
 type Props = {
   stepOneRef: React.RefObject<HTMLDivElement>;
 };
 
 export const TravelSteps = ({ stepOneRef }: Props) => {
+
+  const [stepsDone, setStepsDone] = useState(0);
+
   return (
     <section ref={stepOneRef} className={s.stepOne}>
       <div className={s.message}>
@@ -16,7 +21,10 @@ export const TravelSteps = ({ stepOneRef }: Props) => {
           <img src={avatar} alt="avatar" />
         </div>
       </div>
-      <StepOne />
+      <StepOne stepsDone={stepsDone} setStepsDone={setStepsDone} />
+      {stepsDone > 0 && (
+        <StepTwo />
+      )}
     </section>
   );
 };

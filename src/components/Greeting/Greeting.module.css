@@ -1,15 +1,7 @@
 .greeting {
-    height: 100vh;
-
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-}
-
-.greeting img {
-    width: 100%;
-    max-width: 300px;
-    margin: 20px 0;
 }
 
 .greeting button {
