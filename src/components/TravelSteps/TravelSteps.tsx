@@ -23,7 +23,9 @@ export const TravelSteps = ({ stepOneRef }: Props) => {
         </div>
         <StepOne stepsDone={stepsDone} setStepsDone={setStepsDone} />
       </section>
-      {/* {stepsDone > 0 && <StepTwo />} */}
+      {stepsDone > 0 && (
+        <StepTwo stepsDone={stepsDone} setStepsDone={setStepsDone} />
+      )}
     </>
   );
 };

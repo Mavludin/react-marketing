@@ -4,7 +4,7 @@ type Question = {
   comment: string;
 }
 
-type Quiz = {
+export type Quiz = {
   answerIndex: number;
   questions: Question[];
 }

@@ -1,6 +1,18 @@
 .stepTwo {
     display: flex;
     flex-direction: column;
+
+    margin-top: 30px;
+}
+
+.desc {
+    border-radius: 20px;
+    background-color: orange;
+    padding: 10px 15px;
+}
+
+.desc + p {
+    margin-bottom: 20px;
 }
 
 .quiz {
@@ -9,8 +21,8 @@
     border-radius: 12px;
 }
 
-.top {
-    margin-bottom: 10px;
+.top p {
+    margin: 0;
 }
 
 .quiz h3 {
