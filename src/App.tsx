@@ -1,27 +1,28 @@
-import { useRef, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import './App.css'
 import { Greeting } from './components/Greeting/Greeting'
-import { StepOne } from './components/StepOne/StepOne';
+import { TravelSteps } from './components/TravelSteps/TravelSteps';
 
 function App() {
 
-  const [stepNumber, setStepNumber] = useState(0);
+  const [isStarted, setIsStarted] = useState(false);
 
   const stepOneRef = useRef<HTMLDivElement>(null);
 
-  const onToFirst = () => {
-    setStepNumber(1);
+  const handleStart = useCallback(() => {
+    setIsStarted(true);
 
     setTimeout(() => {
       stepOneRef.current?.scrollIntoView({ behavior: 'smooth' });
     }, 500)
-  }
+  }, []);
 
   return (
     <div className='app'>
-      <Greeting onToFirst={onToFirst} />
-      {stepNumber === 1 && (
-        <StepOne stepOneRef={stepOneRef} />
+      <Greeting handleStart={handleStart} />
+  
+      {isStarted && (
+        <TravelSteps stepOneRef={stepOneRef} />
       )}
     </div>
   )

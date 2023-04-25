@@ -1,12 +1,12 @@
-import s from "./StepOne.module.css";
+import s from "./TravelSteps.module.css";
 import avatar from "../../assets/avatar.png";
-import { QuizOne } from "./QuizOne/QuizOne";
+import { StepOne } from "./StepOne/StepOne";
 
 type Props = {
   stepOneRef: React.RefObject<HTMLDivElement>;
 };
 
-export const StepOne = ({ stepOneRef }: Props) => {
+export const TravelSteps = ({ stepOneRef }: Props) => {
   return (
     <section ref={stepOneRef} className={s.stepOne}>
       <div className={s.message}>
@@ -16,7 +16,7 @@ export const StepOne = ({ stepOneRef }: Props) => {
           <img src={avatar} alt="avatar" />
         </div>
       </div>
-      <QuizOne />
+      <StepOne />
     </section>
   );
 };

@@ -1,9 +1,9 @@
-import s from "./QuizOne.module.css";
+import s from "./StepOne.module.css";
 import toolsIcon from "../../../assets/tools.svg";
 import { useState } from "react";
 import { quiz1 } from "../../../shared/data";
 
-export const QuizOne = () => {
+export const StepOne = () => {
   const [answerNumber, setAnswerNumber] = useState(-1);
   const [isDone, setIsDone] = useState(false);
 
