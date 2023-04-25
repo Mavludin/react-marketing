@@ -1,0 +1,9 @@
+.imageBlock img {
+    margin: 10px 0;
+    width: 100%;
+    max-width: 300px;
+}
+.imageBlock p {
+    color: #b5b4b4;
+    text-align: center;
+}
