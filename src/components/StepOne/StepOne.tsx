@@ -1,6 +1,6 @@
 import s from "./StepOne.module.css";
 import avatar from "../../assets/avatar.png";
-import { TestOne } from "./TestOne/TestOne";
+import { QuizOne } from "./QuizOne/QuizOne";
 
 type Props = {
   stepOneRef: React.RefObject<HTMLDivElement>;
@@ -16,7 +16,7 @@ export const StepOne = ({ stepOneRef }: Props) => {
           <img src={avatar} alt="avatar" />
         </div>
       </div>
-      <TestOne />
+      <QuizOne />
     </section>
   );
 };
