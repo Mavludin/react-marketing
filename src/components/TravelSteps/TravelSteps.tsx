@@ -13,7 +13,7 @@ export const TravelSteps = ({ stepOneRef }: Props) => {
 
   return (
     <>
-      <section ref={stepOneRef} className={s.stepOne}>
+      <section ref={stepOneRef} className={s.travel}>
         <div className={s.message}>
           <span>Аллахверди</span>
           <div className={s.inner}>
@@ -23,7 +23,7 @@ export const TravelSteps = ({ stepOneRef }: Props) => {
         </div>
         <StepOne stepsDone={stepsDone} setStepsDone={setStepsDone} />
       </section>
-      {stepsDone > 0 && <StepTwo />}
+      {/* {stepsDone > 0 && <StepTwo />} */}
     </>
   );
 };

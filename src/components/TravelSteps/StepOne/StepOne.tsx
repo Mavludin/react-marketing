@@ -11,13 +11,21 @@ type Props = {
 export const StepOne = ({ stepsDone, setStepsDone }: Props) => {
   const [answerNumber, setAnswerNumber] = useState(-1);
 
+  const handleSelection = (index: number) => {
+    if (stepsDone > 0) return;
+
+    setAnswerNumber(index)
+  }
+
   return (
     <div className={s.stepOne}>
-      <p>Предлагаю сразу начать с практики.</p>
-      <p>Попробуй ответить на вопрос.</p>
+      <div className={s.top}>
+        <p>Предлагаю сразу начать с практики.</p>
+        <p>Попробуй ответить на вопрос.</p>
+      </div>
 
       <div className={s.quiz}>
-        <div className={s.top}>
+        <div className={s.quizTop}>
           <h3>
             <img src={toolsIcon} alt="Tools" /> <span>Задание</span>
           </h3>
@@ -26,28 +34,47 @@ export const StepOne = ({ stepsDone, setStepsDone }: Props) => {
         </div>
         <div className={s.options}>
           {quiz1.questions.map((question, index) => {
-            const isFinished =
+
+            const isRightAnswer = stepsDone > 0 && index === quiz1.answerIndex;
+
+            const isSelectedRightAnswer =
               stepsDone > 0 &&
               answerNumber === index &&
               answerNumber === quiz1.answerIndex;
+
+            const isSelected = answerNumber === index;
+
+            const selectedStyles = isSelected ? s.blackCircle : '';
+            const circleStyles = isSelectedRightAnswer ? s.greenCircle : selectedStyles 
+
             return (
               <div key={question.id} className={s.option}>
-                <div>
+                <div onClick={() => handleSelection(index)}>
                   <button
-                    style={{
-                      backgroundColor: isFinished ? "greenyellow" : "",
-                    }}
-                    onClick={() => setAnswerNumber(index)}
-                    className={s.circle}
-                  />
+                    className={`${s.circle} ${circleStyles}`}
+                  >
+                    {answerNumber === index ? "✓" : ""}
+                  </button>
                   <span>{question.text}</span>
                 </div>
-                {stepsDone > 0 && <p>{question.comment}</p>}
+                {stepsDone > 0 && (
+                  <p
+                    className={`${s.comment} ${
+                      isRightAnswer ? s.greenComment : s.redComment
+                    }`}
+                  >
+                    {question.comment}
+                  </p>
+                )}
               </div>
             );
           })}
         </div>
-        <button onClick={() => setStepsDone(1)} className={s.answerBtn}>
+        <button
+          disabled={answerNumber === -1}
+          onClick={() => setStepsDone(1)}
+          className={s.answerBtn}
+        >
           Узнать ответь
         </button>
       </div>
