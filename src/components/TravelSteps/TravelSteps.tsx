@@ -1,8 +1,9 @@
 import s from "./TravelSteps.module.css";
-import avatar from "../../assets/avatar.png";
-import { StepOne } from "./StepOne/StepOne";
-import { StepTwo } from "./StepTwo/StepTwo";
+import { WhatIsInternetMarketing } from "./WhatIsInternetMarketing";
 import { useState } from "react";
+import { MyMessage } from "../MyMessage/MyMessage";
+import { MarketingDifference } from "./MarketingDifference/MarketingDifference";
+import { Chat } from "./Chat";
 
 type Props = {
   stepOneRef: React.RefObject<HTMLDivElement>;
@@ -14,18 +15,21 @@ export const TravelSteps = ({ stepOneRef }: Props) => {
   return (
     <>
       <section ref={stepOneRef} className={s.travel}>
-        <div className={s.message}>
-          <span>Аллахверди</span>
-          <div className={s.inner}>
-            <span>Отправиться в путешествие</span>
-            <img src={avatar} alt="avatar" />
-          </div>
-        </div>
-        <StepOne stepsDone={stepsDone} setStepsDone={setStepsDone} />
+        <MyMessage text="Отправиться в путешествие" />
+        <WhatIsInternetMarketing
+          prevStep={0}
+          stepsDone={stepsDone}
+          setStepsDone={setStepsDone}
+        />
       </section>
       {stepsDone > 0 && (
-        <StepTwo stepsDone={stepsDone} setStepsDone={setStepsDone} />
+        <MarketingDifference
+          prevStep={1}
+          stepsDone={stepsDone}
+          setStepsDone={setStepsDone}
+        />
       )}
+      {stepsDone > 1 && <Chat />}
     </>
   );
 };

@@ -1,26 +1,25 @@
-import s from "./StepOne.module.css";
-import { useState } from "react";
 import { quiz1 } from "../../../shared/data";
 import { CustomQuiz } from "../../CustomQuiz/CustomQuiz";
+import s from "./WhatIsInternetMarketing.module.css";
+import { useState } from "react";
 
 type Props = {
+  prevStep: number;
   stepsDone: number;
   setStepsDone: React.Dispatch<React.SetStateAction<number>>;
 };
 
-const PREV_STEP = 0;
-
-export const StepOne = ({ stepsDone, setStepsDone }: Props) => {
+export const WhatIsInternetMarketing = ({ prevStep, stepsDone, setStepsDone }: Props) => {
   const [answerNumber, setAnswerNumber] = useState(-1);
 
   const handleSelection = (index: number) => {
-    if (stepsDone > PREV_STEP) return;
+    if (stepsDone > prevStep) return;
 
     setAnswerNumber(index);
   };
 
   return (
-    <div className={s.stepOne}>
+    <div className={s.wrapper}>
       <div className={s.top}>
         <p>Предлагаю сразу начать с практики.</p>
         <p>Попробуй ответить на вопрос.</p>
@@ -30,13 +29,13 @@ export const StepOne = ({ stepsDone, setStepsDone }: Props) => {
         title="Что такое интернет-маркетинг?"
         subtitle="Выбери один верный ответ."
         quizData={quiz1}
-        prevStep={PREV_STEP}
+        prevStep={prevStep}
         stepsDone={stepsDone}
         setStepsDone={setStepsDone}
         answerNumber={answerNumber}
         handleSelection={handleSelection}
       />
-      {stepsDone > PREV_STEP && (
+      {stepsDone > prevStep && (
         <p>
           Теперь ты лучше понимаешь, что такое интернет-маркетинг. Но чтобы
           решить реальные задачи, нужно глубже разобраться в этой теме. Поэтому
