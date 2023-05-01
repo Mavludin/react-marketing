@@ -7,7 +7,17 @@ import { CustomImage } from "../../CustomImage/CustomImage";
 
 import s from "./Chat.module.css";
 
-export const DinnerChat = () => {
+type Props = {
+  currentStep: number;
+  stepsDone: number;
+  setStepsDone: React.Dispatch<React.SetStateAction<number>>;
+};
+
+export const DinnerChat = ({
+  currentStep,
+  stepsDone,
+  setStepsDone,
+}: Props) => {
   const [showContent, setShowContent] = useState(false);
   const [showContent2, setShowContent2] = useState(false);
   const [showContent3, setShowContent3] = useState(false);
@@ -23,7 +33,7 @@ export const DinnerChat = () => {
 
     setTimeout(() => {
         contentRef.current?.scrollIntoView({ behavior: 'smooth' });
-    }, 500)
+    }, 100)
   };
 
   const handleStart2 = () => {
@@ -43,11 +53,13 @@ export const DinnerChat = () => {
   };
 
   const handleStart4 = () => {
-    setShowContent4(true);
+    // setShowContent4(true);
 
-    setTimeout(() => {
-        contentRef4.current?.scrollIntoView({ behavior: 'smooth' });
-    }, 500)
+    // setTimeout(() => {
+    //     contentRef4.current?.scrollIntoView({ behavior: 'smooth' });
+    // }, 500)
+
+    setStepsDone(currentStep + 1)
   };
 
 
@@ -69,7 +81,7 @@ export const DinnerChat = () => {
 
       <UserOneMessage text="Эй, как жизнь?" />
       <UserOneMessage text="Ты размышляешь над новым изобретением человечества или вроде того?" />
-      <BlackButton handleClick={handleStart} text="Как-нибудь, дорогая. Но не сейчас 🙂" />
+      <BlackButton handleClick={handleStart} text="Как-нибудь, дорогая. Но не сейчас 🙂" shouldDisappear interval={0}/>
 
       {showContent && (
         <div ref={contentRef}>
