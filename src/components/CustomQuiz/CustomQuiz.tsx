@@ -6,7 +6,7 @@ type Props = {
   title: string;
   subtitle: string;
   quizData: Quiz;
-  prevStep: number;
+  currentStep: number;
   stepsDone: number;
   setStepsDone: React.Dispatch<React.SetStateAction<number>>;
   answerNumber: number;
@@ -17,7 +17,7 @@ export const CustomQuiz = ({
   title,
   subtitle,
   quizData,
-  prevStep,
+  currentStep,
   stepsDone,
   setStepsDone,
   answerNumber,
@@ -34,10 +34,10 @@ export const CustomQuiz = ({
       </div>
       <div className={s.options}>
         {quizData.questions.map((question, index) => {
-          const isRightAnswer = stepsDone > prevStep && index === quizData.answerIndex;
+          const isRightAnswer = stepsDone > currentStep && index === quizData.answerIndex;
 
           const isSelectedRightAnswer =
-            stepsDone > prevStep &&
+            stepsDone > currentStep &&
             answerNumber === index &&
             answerNumber === quizData.answerIndex;
 
@@ -56,7 +56,7 @@ export const CustomQuiz = ({
                 </button>
                 <span>{question.text}</span>
               </div>
-              {stepsDone > prevStep && (
+              {stepsDone > currentStep && (
                 <p
                   className={`${s.comment} ${
                     isRightAnswer ? s.greenComment : s.redComment
@@ -71,7 +71,7 @@ export const CustomQuiz = ({
       </div>
       <button
         disabled={answerNumber === -1}
-        onClick={() => setStepsDone(prevStep + 1)}
+        onClick={() => setStepsDone(currentStep + 1)}
         className={s.answerBtn}
       >
         Узнать ответь

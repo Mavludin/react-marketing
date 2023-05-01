@@ -1,3 +1,4 @@
+import { BlackButton } from "../BlackButton/BlackButton";
 import { CustomImage } from "../CustomImage/CustomImage";
 import s from "./Greeting.module.css";
 
@@ -27,7 +28,10 @@ export const Greeting = ({ handleStart }: Props) => {
         doloribus eius eveniet earum repudiandae nobis, ipsum, quibusdam dolore
         recusandae sit dolorum?
       </p>
-      <button onClick={handleStart}>Отправиться в путешествие!</button>
+      <BlackButton
+        handleClick={handleStart}
+        text="Отправиться в путешествие!"
+      />
     </section>
   );
 };

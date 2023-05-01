@@ -4,6 +4,7 @@ import { useState } from "react";
 import { MyMessage } from "../MyMessage/MyMessage";
 import { MarketingDifference } from "./MarketingDifference/MarketingDifference";
 import { Chat } from "./Chat";
+import { ChatWithWorkers } from "./Chat/chats/ChatWithWorkers";
 
 type Props = {
   stepOneRef: React.RefObject<HTMLDivElement>;
@@ -17,19 +18,23 @@ export const TravelSteps = ({ stepOneRef }: Props) => {
       <section ref={stepOneRef} className={s.travel}>
         <MyMessage text="Отправиться в путешествие" />
         <WhatIsInternetMarketing
-          prevStep={0}
+          currentStep={0}
           stepsDone={stepsDone}
           setStepsDone={setStepsDone}
         />
       </section>
       {stepsDone > 0 && (
         <MarketingDifference
-          prevStep={1}
+          currentStep={1}
           stepsDone={stepsDone}
           setStepsDone={setStepsDone}
         />
       )}
-      {stepsDone > 1 && <Chat />}
+      {stepsDone > 1 && (
+        <Chat>
+          <ChatWithWorkers />
+        </Chat>
+      )}
     </>
   );
 };

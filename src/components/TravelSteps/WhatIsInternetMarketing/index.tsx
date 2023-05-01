@@ -4,16 +4,20 @@ import s from "./WhatIsInternetMarketing.module.css";
 import { useState } from "react";
 
 type Props = {
-  prevStep: number;
+  currentStep: number;
   stepsDone: number;
   setStepsDone: React.Dispatch<React.SetStateAction<number>>;
 };
 
-export const WhatIsInternetMarketing = ({ prevStep, stepsDone, setStepsDone }: Props) => {
+export const WhatIsInternetMarketing = ({
+  currentStep,
+  stepsDone,
+  setStepsDone,
+}: Props) => {
   const [answerNumber, setAnswerNumber] = useState(-1);
 
   const handleSelection = (index: number) => {
-    if (stepsDone > prevStep) return;
+    if (stepsDone > currentStep) return;
 
     setAnswerNumber(index);
   };
@@ -29,13 +33,13 @@ export const WhatIsInternetMarketing = ({ prevStep, stepsDone, setStepsDone }: P
         title="Что такое интернет-маркетинг?"
         subtitle="Выбери один верный ответ."
         quizData={quiz1}
-        prevStep={prevStep}
+        currentStep={currentStep}
         stepsDone={stepsDone}
         setStepsDone={setStepsDone}
         answerNumber={answerNumber}
         handleSelection={handleSelection}
       />
-      {stepsDone > prevStep && (
+      {stepsDone > currentStep && (
         <p>
           Теперь ты лучше понимаешь, что такое интернет-маркетинг. Но чтобы
           решить реальные задачи, нужно глубже разобраться в этой теме. Поэтому

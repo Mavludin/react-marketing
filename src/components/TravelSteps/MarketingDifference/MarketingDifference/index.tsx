@@ -5,20 +5,20 @@ import s from "./MarketingDifference.module.css";
 import { useState } from "react";
 
 type Props = {
-  prevStep: number;
+  currentStep: number;
   stepsDone: number;
   setStepsDone: React.Dispatch<React.SetStateAction<number>>;
 };
 
 export const MarketingDifference = ({
-  prevStep,
+  currentStep,
   stepsDone,
   setStepsDone,
 }: Props) => {
   const [answerNumber, setAnswerNumber] = useState(-1);
 
   const handleSelection = (index: number) => {
-    if (stepsDone > prevStep) return;
+    if (stepsDone > currentStep) return;
 
     setAnswerNumber(index);
   };
@@ -64,7 +64,7 @@ export const MarketingDifference = ({
         title="Заголовок 2"
         subtitle="Подзаголовок 2"
         quizData={quiz2}
-        prevStep={prevStep}
+        currentStep={currentStep}
         stepsDone={stepsDone}
         setStepsDone={setStepsDone}
         answerNumber={answerNumber}
