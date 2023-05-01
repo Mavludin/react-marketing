@@ -1,4 +1,3 @@
-import { quiz1 } from "../../../shared/data";
 import s from "./Practic.module.css";
 import { useState } from "react";
 
@@ -12,7 +11,7 @@ export const Practic = ({
   const [answerNumber, setAnswerNumber] = useState(-1);
 
   return (
-    <div className={s.wrapper}>
+    <div ref={practicRef} className={s.wrapper}>
       <div className={s.top}>
         <p>Предлагаю сразу начать с практики.</p>
         <p>ВЫПОЛНИ СЛЕДУЮЩЕЕ ЗАДАНИЕ.</p>
