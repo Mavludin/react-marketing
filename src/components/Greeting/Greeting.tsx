@@ -1,5 +1,4 @@
 import { BlackButton } from "../BlackButton/BlackButton";
-import { CustomImage } from "../CustomImage/CustomImage";
 import s from "./Greeting.module.css";
 
 type Props = {
@@ -34,7 +33,6 @@ export const Greeting = ({ handleStart }: Props) => {
         пропасть, и он никак не мог преодолеть эту пропасть.
       </p>
       <BlackButton handleClick={handleStart} text="Войти в дом" />
-      <CustomImage />
     </section>
   );
 };
