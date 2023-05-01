@@ -6,10 +6,15 @@ import { BlackButton } from "../BlackButton/BlackButton";
 import { ChatWithWorkers } from "./Chats/ChatWithWorkers";
 
 type Props = {
-  stepOneRef: React.RefObject<HTMLDivElement>;
+  stepOneRef: React.RefObject<HTMLDivElement>,
+  handleComplete: () => void;
 };
 
-export const TravelSteps = ({ stepOneRef }: Props) => {
+export const TravelSteps = (
+  { 
+    stepOneRef,
+    handleComplete 
+  }: Props) => {
   const [stepsDone, setStepsDone] = useState(0);
 
   return (
@@ -22,9 +27,8 @@ export const TravelSteps = ({ stepOneRef }: Props) => {
         <ChatWithWorkers currentStep={2} stepsDone={stepsDone} setStepsDone={setStepsDone}/>
       )}
       {
-      stepsDone > 2 && (
-        <Practic currentStep={3} stepsDone={stepsDone} setStepsDone={setStepsDone}/>
-      )}
+        stepsDone > 2 && (()=>handleComplete())
+      }
     </>
   );
 };

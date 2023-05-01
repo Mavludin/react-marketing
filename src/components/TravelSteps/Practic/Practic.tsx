@@ -3,15 +3,11 @@ import s from "./Practic.module.css";
 import { useState } from "react";
 
 type Props = {
-  currentStep: number;
-  stepsDone: number;
-  setStepsDone: React.Dispatch<React.SetStateAction<number>>;
-};
+    practicRef: React.RefObject<HTMLDivElement>;
+  };
 
-export const Practic = ({
-  currentStep,
-  stepsDone,
-  setStepsDone,
+export const Practic = ({ 
+    practicRef
 }: Props) => {
   const [answerNumber, setAnswerNumber] = useState(-1);
 
@@ -19,9 +15,9 @@ export const Practic = ({
     <div className={s.wrapper}>
       <div className={s.top}>
         <p>Предлагаю сразу начать с практики.</p>
-        <p>Попробуй ответить на вопрос.</p>
+        <p>ВЫПОЛНИ СЛЕДУЮЩЕЕ ЗАДАНИЕ.</p>
       </div>
-
+{/* 
       {stepsDone > currentStep && (
         <p>
           Теперь ты лучше понимаешь, что такое интернет-маркетинг. Но чтобы
@@ -29,7 +25,7 @@ export const Practic = ({
           сейчас поговорим о классическом маркетинге и расскажем, чем он
           отличается от интернет-маркетинга.
         </p>
-      )}
+      )} */}
     </div>
   );
 };
