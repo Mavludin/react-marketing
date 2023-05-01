@@ -3,8 +3,7 @@ import { WhatIsInternetMarketing } from "./WhatIsInternetMarketing";
 import { useState } from "react";
 import { MyMessage } from "../MyMessage/MyMessage";
 import { MarketingDifference } from "./MarketingDifference/MarketingDifference";
-import { Chat } from "./Chat";
-import { ChatWithWorkers } from "./Chat/chats/ChatWithWorkers";
+import { ChatWithWife } from "./Chats/ChatWithWife";
 
 type Props = {
   stepOneRef: React.RefObject<HTMLDivElement>;
@@ -30,11 +29,7 @@ export const TravelSteps = ({ stepOneRef }: Props) => {
           setStepsDone={setStepsDone}
         />
       )}
-      {stepsDone > 1 && (
-        <Chat>
-          <ChatWithWorkers />
-        </Chat>
-      )}
+      {stepsDone > 1 && <ChatWithWife />}
     </>
   );
 };

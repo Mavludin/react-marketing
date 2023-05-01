@@ -1,10 +1,12 @@
-import { MyMessage } from "../../../MyMessage/MyMessage";
-import { UserOneMessage } from "../../../UserOneMessage/UserOneMessage";
-import { UserTwoMessage } from "../../../UserTwoMessage/UserOneMessage";
+import { MyMessage } from "../../MyMessage/MyMessage";
+import { UserOneMessage } from "../../UserOneMessage/UserOneMessage";
+import { UserTwoMessage } from "../../UserTwoMessage/UserOneMessage";
 
-export const ChatWithWife = () => {
+import s from './Chat.module.css';
+
+export const ChatWithWorkers = () => {
   return (
-    <>
+    <div className={s.wrapper}>
       <MyMessage text="А за что именно?" />
 
       <p>Lorem 1111:</p>
@@ -17,6 +19,6 @@ export const ChatWithWife = () => {
       <MyMessage text="И я всему этому научусь?" />
       <UserOneMessage text="Ты уже учишься" />
       <UserTwoMessage text="О, Илья!" />
-    </>
+    </div>
   );
 };

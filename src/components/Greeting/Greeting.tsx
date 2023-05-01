@@ -9,29 +9,32 @@ type Props = {
 export const Greeting = ({ handleStart }: Props) => {
   return (
     <section className={s.greeting}>
-      <h1>Урок 1. Что такое интернет-маркетинг</h1>
-      <h2>Привет!</h2>
+      <h1>
+        Вся хвала Аллаху, Господу миров, мир и благословение Аллаха Пророку
+        Мухаммаду, его семье, сподвижникам и всем последователям.
+      </h1>
+      <h2>Страница 1. Введение</h2>
       <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod ipsam
-        doloremque cupiditate pariatur similique rerum unde praesentium dicta
-        doloribus eius eveniet
+        Однажды вечером, когда солнце скрылось за горизонтом, заливая шумные
+        улицы теплым светом, Алекс, наконец, завершил свою работу и отправился
+        домой. Город был полон людьми, покидающими свои офисы, друзьями,
+        собирающимися за ужином, и семьями, проводящими время вместе.
       </p>
       <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod ipsam
-        doloremque cupiditate pariatur similique rerum unde praesentium dicta
-        doloribus eius eveniet
+        Прогуливаясь по оживленным улицам, он не мог не заметить рекламу
+        экзотического тура, обещающего приключения и незабываемые впечатления.
+        Глядя на красочные изображения, Алекс вдруг вспомнил, что год назад
+        видел похожее объявление. Он часто представлял, как отправляется со
+        своей семьей в тур. Осознание ‘затяжности’ этих представлений и
+        отсутствие воплощения их в реальность погрузили его в размышление и
+        состояние глубокой озабоченности.
       </p>
+      <p>
+        Казалось, между его мечтами и реальностью образовалась огромная
+        пропасть, и он никак не мог преодолеть эту пропасть.
+      </p>
+      <BlackButton handleClick={handleStart} text="Войти в дом" />
       <CustomImage />
-      <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod ipsam
-        doloremque cupiditate pariatur similique rerum unde praesentium dicta
-        doloribus eius eveniet earum repudiandae nobis, ipsum, quibusdam dolore
-        recusandae sit dolorum?
-      </p>
-      <BlackButton
-        handleClick={handleStart}
-        text="Отправиться в путешествие!"
-      />
     </section>
   );
 };
