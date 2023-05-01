@@ -1,12 +1,12 @@
 import s from "./UserTwoMessage.module.css";
-import avatar from "../../assets/avatar.png";
+import avatar from "../../assets/mark_avatar.png";
 
 type Props = {
   userName?: string;
   text: string;
 };
 
-export const UserTwoMessage = ({ userName = "CEO", text }: Props) => {
+export const UserTwoMessage = ({ userName = "Марк", text }: Props) => {
   return (
     <div className={s.message}>
       <span>{userName}</span>

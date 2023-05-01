@@ -8,7 +8,7 @@ type Props = {
 export const MyMessage = ({ text }: Props) => {
   return (
     <div className={s.message}>
-      <span>Аллахверди</span>
+      <span>Алекс</span>
       <div className={s.inner}>
         <span>{text}</span>
         <img src={avatar} alt="avatar" />

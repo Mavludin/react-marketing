@@ -10,7 +10,7 @@ type Props = {
   handleComplete: () => void;
 };
 
-export const TravelSteps = ({ practicRef, stepOneRef, handleComplete }: Props) => {
+export const TravelSteps = ({ stepOneRef, practicRef, handleComplete }: Props) => {
   const [stepsDone, setStepsDone] = useState(0);
 
   return (
@@ -27,6 +27,7 @@ export const TravelSteps = ({ practicRef, stepOneRef, handleComplete }: Props) =
           currentStep={2}
           stepsDone={stepsDone}
           setStepsDone={setStepsDone}
+          handleComplete={handleComplete}
         />
       )}
       {stepsDone > 2 && <Practic practicRef={practicRef} />}

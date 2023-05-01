@@ -25,7 +25,9 @@ function App() {
 
     setTimeout(() => {
       practicRef.current?.scrollIntoView({ behavior: "smooth" });
-    }, 500);
+    }, 0);
+
+    console.log("Scrolling to practicRef");
   }, []);
 
   return (
@@ -40,6 +42,7 @@ function App() {
             practicRef={practicRef}
           />
         )}
+
 
         {isTravelCompleted && <Practic practicRef={practicRef} />}
       </main>

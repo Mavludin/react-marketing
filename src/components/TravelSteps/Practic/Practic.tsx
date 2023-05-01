@@ -1,5 +1,8 @@
 import s from "./Practic.module.css";
 import { useState } from "react";
+import { CustomImage } from "../../CustomImage/CustomImage";
+import targetImg from "../../../assets/targetImg.png";
+
 
 type Props = {
     practicRef: React.RefObject<HTMLDivElement>;
@@ -13,8 +16,12 @@ export const Practic = ({
   return (
     <div ref={practicRef} className={s.wrapper}>
       <div className={s.top}>
-        <p>Предлагаю сразу начать с практики.</p>
-        <p>ВЫПОЛНИ СЛЕДУЮЩЕЕ ЗАДАНИЕ.</p>
+        <p className={s.desc}>
+            *СПИСОК ПРАКТИЧЕСКИХ ЗАДАНИЙ*
+        </p>
+
+        {/* Картинка человека смотрящего в цель*/}
+        <CustomImage src={targetImg}/>
       </div>
 {/* 
       {stepsDone > currentStep && (

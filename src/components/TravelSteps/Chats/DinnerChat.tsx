@@ -5,6 +5,10 @@ import { UserOneMessage } from "../../UserOneMessage/UserOneMessage";
 import { UserTwoMessage } from "../../UserTwoMessage/UserOneMessage";
 import { CustomImage } from "../../CustomImage/CustomImage";
 
+
+import enterHomeImg from "../../../assets/enterHomeImg.png";
+import dinnerImg from "../../../assets/dinnerImg.png";
+
 import s from "./Chat.module.css";
 
 type Props = {
@@ -18,6 +22,8 @@ export const DinnerChat = ({
   stepsDone,
   setStepsDone,
 }: Props) => {
+  const scrollTimeout = 300;
+
   const [showContent, setShowContent] = useState(false);
   const [showContent2, setShowContent2] = useState(false);
   const [showContent3, setShowContent3] = useState(false);
@@ -33,7 +39,7 @@ export const DinnerChat = ({
 
     setTimeout(() => {
         contentRef.current?.scrollIntoView({ behavior: 'smooth' });
-    }, 100)
+    }, scrollTimeout)
   };
 
   const handleStart2 = () => {
@@ -41,7 +47,7 @@ export const DinnerChat = ({
 
     setTimeout(() => {
         contentRef2.current?.scrollIntoView({ behavior: 'smooth' });
-    }, 500)
+    }, scrollTimeout)
   };
 
   const handleStart3 = () => {
@@ -49,7 +55,7 @@ export const DinnerChat = ({
 
     setTimeout(() => {
         contentRef3.current?.scrollIntoView({ behavior: 'smooth' });
-    }, 500)
+    }, scrollTimeout)
   };
 
   const handleStart4 = () => {
@@ -57,7 +63,7 @@ export const DinnerChat = ({
 
     // setTimeout(() => {
     //     contentRef4.current?.scrollIntoView({ behavior: 'smooth' });
-    // }, 500)
+    // }, scrollTimeout)
 
     setStepsDone(currentStep + 1)
   };
@@ -66,15 +72,15 @@ export const DinnerChat = ({
 
   return (
     <div className={s.wrapper}>
-
+      <h1>Часть 1. Ужин</h1>
       {/* Картинка входа в дом */}
-      <CustomImage />
+      <CustomImage src={enterHomeImg}/>
       <p>
       За ужином со своей женой Эммой, Алекс не смог скрыть ощущения, что что-то не так. Несмотря на неустанную работу изо дня в день, казалось, что ничего в его жизни не изменилось.
       </p>
 
       {/* Картинка за ужином*/}
-      <CustomImage />
+      <CustomImage src={dinnerImg} />
       <p>
       За ужином со своей женой Эммой, Алекс не смог скрыть ощущения, что что-то не так. Несмотря на неустанную работу изо дня в день, казалось, что ничего в его жизни не изменилось.
       </p>
@@ -94,7 +100,7 @@ export const DinnerChat = ({
           <UserOneMessage text="Ну, может быть, пришло время поискать какую-то точку зрения со стороны. " />
           <UserOneMessage text="Например, поговорить с кем-то знающим, который может помочь посмотреть на вещи по-другому" />
           
-          <BlackButton handleClick={handleStart2} text="Согласиться" />
+          <BlackButton handleClick={handleStart2} text="Согласиться" shouldDisappear />
         </div>
       )}
 
@@ -102,7 +108,7 @@ export const DinnerChat = ({
         <div ref={contentRef2}>
           <MyMessage text="А если не знаешь, то спроси у знающего…" />
           <MyMessage text="Кажется, ты всегда находишь, что подсказать. Побеседуем с одним человеком 🙂" />
-          <BlackButton handleClick={handleStart3} text="Сделать комплимент" />
+          <BlackButton handleClick={handleStart3} text="Сделать комплимент" shouldDisappear/>
         </div>
       )}
 
@@ -111,7 +117,7 @@ export const DinnerChat = ({
           <MyMessage text="А салат вкусный" />
           <UserOneMessage text="Думаю, повар хороший 🙂" />
 
-          <BlackButton handleClick={handleStart4} text="Отправиться на встречу" />
+          <BlackButton handleClick={handleStart4} text="Отправиться на встречу" shouldDisappear/>
         </div>
       )}
     </div>
