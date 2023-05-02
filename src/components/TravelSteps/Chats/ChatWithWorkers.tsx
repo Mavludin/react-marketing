@@ -1,7 +1,6 @@
 import { useRef, useState } from "react";
 import { BlackButton } from "../../BlackButton/BlackButton";
 import { MyMessage } from "../../MyMessage/MyMessage";
-import { UserOneMessage } from "../../UserOneMessage/UserOneMessage";
 import { UserTwoMessage } from "../../UserTwoMessage/UserOneMessage";
 
 import s from './Chat.module.css';
@@ -14,13 +13,15 @@ type Props = {
   stepsDone: number;
   setStepsDone: React.Dispatch<React.SetStateAction<number>>;
   handleComplete: React.Dispatch<React.SetStateAction<number>>;
+  meetingRef: React.RefObject<HTMLDivElement>
 };
 
 export const ChatWithWorkers = ({
   currentStep,
   stepsDone,
   setStepsDone,
-  handleComplete
+  handleComplete,
+  meetingRef
 }: Props) => {
   const scrollTimeout = 300;
 
@@ -105,7 +106,7 @@ export const ChatWithWorkers = ({
 
 
   return (
-    <div className={s.wrapper}>
+    <div className={s.wrapper} ref={meetingRef}>
       <h1>Часть 2. Встреча</h1>
       <p>
         В поисках совета Алекс решил встретиться со своим бывшим коллегой Беном, коллегой-предпринимателем, который прошел через испытания и невзгоды запуска стартапа. Они встретились в своей любимой кофейне и устроились в уютном уголке, потягивая горячие напитки. Алекс рассказал о своей дилемме.

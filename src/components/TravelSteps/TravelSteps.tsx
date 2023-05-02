@@ -1,5 +1,5 @@
 import s from "./TravelSteps.module.css";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { DinnerChat } from "./Chats/DinnerChat";
 import { Practic } from "./Practic/Practic";
 import { ChatWithWorkers } from "./Chats/ChatWithWorkers";
@@ -13,6 +13,8 @@ type Props = {
 export const TravelSteps = ({ stepOneRef, practicRef, handleComplete }: Props) => {
   const [stepsDone, setStepsDone] = useState(0);
 
+  const meetingRef = useRef<HTMLDivElement>(null);
+
   return (
     <>
       <section ref={stepOneRef} className={s.travel}>
@@ -20,6 +22,7 @@ export const TravelSteps = ({ stepOneRef, practicRef, handleComplete }: Props) =
           currentStep={1}
           stepsDone={stepsDone}
           setStepsDone={setStepsDone}
+          meetingRef={meetingRef}
         />
       </section>
       {stepsDone > 1 && (
@@ -28,9 +31,9 @@ export const TravelSteps = ({ stepOneRef, practicRef, handleComplete }: Props) =
           stepsDone={stepsDone}
           setStepsDone={setStepsDone}
           handleComplete={handleComplete}
+          meetingRef={meetingRef}
         />
       )}
-      {stepsDone > 2 && <Practic practicRef={practicRef} />}
     </>
   );
 };

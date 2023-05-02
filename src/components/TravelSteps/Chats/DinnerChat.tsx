@@ -15,12 +15,14 @@ type Props = {
   currentStep: number;
   stepsDone: number;
   setStepsDone: React.Dispatch<React.SetStateAction<number>>;
+  meetingRef: React.RefObject<HTMLDivElement>
 };
 
 export const DinnerChat = ({
   currentStep,
   stepsDone,
   setStepsDone,
+  meetingRef,
 }: Props) => {
   const scrollTimeout = 300;
 
@@ -59,11 +61,11 @@ export const DinnerChat = ({
   };
 
   const handleStart4 = () => {
-    // setShowContent4(true);
+    setShowContent4(true);
 
-    // setTimeout(() => {
-    //     contentRef4.current?.scrollIntoView({ behavior: 'smooth' });
-    // }, scrollTimeout)
+    setTimeout(() => {
+      meetingRef.current?.scrollIntoView({ behavior: 'smooth' });
+    }, scrollTimeout)
 
     setStepsDone(currentStep + 1)
   };
