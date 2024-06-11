@@ -1,5 +1,4 @@
 import s from "./TravelSteps.module.css";
-import { useState } from "react";
 import { DinnerChat } from "./Chats/DinnerChat";
 
 type Props = {
@@ -7,7 +6,6 @@ type Props = {
 };
 
 export const TravelSteps = ({ stepOneRef }: Props) => {
-  const [stepsDone, setStepsDone] = useState(0);
 
   return (
     <>
